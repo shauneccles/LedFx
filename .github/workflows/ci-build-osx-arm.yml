@@ -28,14 +28,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - name: Get Python path
-        id: get-python-path
+      - name: Install poetry via pip
         run: |
-          echo "::set-output name=path::$(dirname $(which python))"
-      - name: Install poetry via Homebrew
-        run: |
-          echo "${{ steps.get-python-path.outputs.path }}" >> $GITHUB_PATH
-          brew install poetry
+          python -m pip install poetry
       - name: Build LedFx wheel
         run: |
           poetry build
