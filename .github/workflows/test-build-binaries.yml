@@ -13,7 +13,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 env:
-  DEFAULT_PYTHON: 3.13
+  DEFAULT_PYTHON: 3.13-dev
 
 jobs:
   build-ledfx-windows:
